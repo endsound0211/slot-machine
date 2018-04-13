@@ -1,0 +1,37 @@
+group 'com.endsound'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "Gradle",
+                "Main-Class":"com.endsound.Main",
+                "Implementation-Version": version)
+    }
+}
+
+task addDependToManifest << {
+    if (!configurations.runtime.isEmpty()) {
+        jar.manifest.attributes('Class-Path': configurations.compile.collect { "lib/"+it.name }.join(' '))
+    }
+}
+jar.dependsOn += addDependToManifest
+
+task copyJars(type: Copy) {
+    from configurations.compile
+    destinationDir = file('build/libs/lib')
+}
+jar.dependsOn += copyJars
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile fileTree(dir:'./lib',include:'*.jar')
+}
