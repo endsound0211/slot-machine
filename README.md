@@ -1,4 +1,3 @@
-#Slot Machine
 compiler:
 ```
 gradle jar
