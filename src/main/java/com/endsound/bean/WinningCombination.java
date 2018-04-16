@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Winning combination structure
+ */
 public class WinningCombination {
     private Symbol[] symbols;
     private Integer multiplier;
@@ -16,6 +19,11 @@ public class WinningCombination {
         this.multiplier = multiplier;
     }
 
+    /**
+     * judge if symbols is match with this winning combination
+     * @param symbols hit symbols
+     * @return match or not
+     */
     public Boolean match(Symbol[] symbols){
         List<Symbol> tempSymbols = new ArrayList<Symbol>(Arrays.asList(this.symbols));
 
