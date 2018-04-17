@@ -24,8 +24,8 @@ public class Main {
         //init evaluator
         Evaluator examEvaluator = new ExamEvaluator(new WinningCombination[]{
             new WinningCombination(new Symbol[]{symbolA, symbolA, symbolA}, 20),
-            new WinningCombination(new Symbol[]{symbolA, symbolA, symbolA}, 20),
-            new WinningCombination(new Symbol[]{symbolA, symbolA, symbolA}, 20),
+            new WinningCombination(new Symbol[]{symbolB, symbolB, symbolB}, 20),
+            new WinningCombination(new Symbol[]{symbolC, symbolC, symbolC}, 20),
             new WinningCombination(new Symbol[]{symbolA, symbolB, symbolC}, 30)
         });
         //init machine
